@@ -1,0 +1,72 @@
+.root{
+    -fx-col-bg:#060000;
+    -fx-col-pri: #8C281F;
+    -fx-col-sec: #F23E2E;
+    -fx-col-ter: #A6896F;
+    -fx-col-qua:#F2E6CE;
+
+    -fx-col-lod-blue: #11214D;
+    -fx-col-lod-selection: #411548;
+}
+.body {
+    -fx-background-color: -fx-col-bg;
+}
+.menu-bar {
+    -fx-background-color: linear-gradient(from -50% 0% to 150% 100%, #060000 0%, -fx-col-lod-blue 50%, #060000 100%); /* Dark background color for MenuBar */
+    -fx-border-color: #757575;
+    -fx-border-width: 2px;
+    -fx-selection-bar: -fx-col-lod-selection;
+    -fx-padding:0;
+    -fx-margin:0;
+}
+.menu-bar .label {
+    -fx-text-fill: #ecf0f1; /* Light text color for menu items */
+}
+.label {
+    -fx-text-fill: #ecf0f1; /* Light text color for menu items */
+}
+.text-area{
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 2px;
+    -fx-border-color: #757575;
+    -fx-background-radius: 0px;
+}
+.text-area .content{
+    -fx-background-color: linear-gradient(from -50% 0% to 150% 100%, #060000 0%, -fx-col-lod-blue 50%, #060000 100%);
+}
+.context-menu {
+    -fx-padding:0;
+    -fx-background-color: linear-gradient(from -50% 0% to 150% 100%, #060000 0%, -fx-col-lod-blue 50%, #060000 100%);
+    -fx-border-color: #757575;
+    -fx-border-width: 2px;
+}
+.button{
+    -fx-background-color: linear-gradient(from -50% 0% to 150% 100%, #060000 0%, -fx-col-lod-blue 50%, #060000 100%);
+    -fx-text-fill: white;
+    -fx-border-width: 2px;
+    -fx-border-color: #757575;
+    -fx-background-radius: 0px;
+    -fx-height: 28px;
+}
+.button:hover{
+    -fx-background-color: -fx-col-lod-selection;
+}
+.text-field{
+    -fx-background-color: linear-gradient(from -50% 0% to 150% 100%, #060000 0%, -fx-col-lod-blue 50%, #060000 100%);
+    -fx-text-fill: white;
+    -fx-border-width: 2px;
+    -fx-border-color: #757575;
+    -fx-background-radius: 0px;
+}
+.list-view{
+    -fx-background-color: linear-gradient(from -50% 0% to 150% 100%, #060000 0%, -fx-col-lod-blue 50%, #060000 100%);
+    -fx-border-width: 2px;
+    -fx-border-color: #757575;
+}
+.list-view .list-cell{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.list-view .list-cell:selected{
+    -fx-background-color: -fx-col-lod-selection;
+}

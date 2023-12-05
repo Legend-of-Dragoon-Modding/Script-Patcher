@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="createPatchMenu" prefHeight="600.0" prefWidth="1000.0" styleClass="body" stylesheets="@../../../css/gen.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="avi.lod.tlodscripttools.CreatePatch">
+   <children>
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="openPatchMenuItem" mnemonicParsing="false" onAction="#createNewPatch" text="New Patch" />
+                  <MenuItem fx:id="editPatchMenuItem" mnemonicParsing="false" onAction="#pickPatch" text="Edit Patch" />
+               </items>
+            </Menu>
+          <Menu fx:id="patchMenu" disable="true" mnemonicParsing="false" text="Patch">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openPatchSettings" text="Settings" />
+                <MenuItem mnemonicParsing="false" text="Add Change" />
+                <MenuItem mnemonicParsing="false" text="Save" />
+                <MenuItem fx:id="closePatchMenuItem" mnemonicParsing="false" onAction="#closePatch" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Info">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Help" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="sideBarPane" layoutY="30.0" prefHeight="570.0" prefWidth="210.0" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <ListView fx:id="changeListView" layoutX="5.0" layoutY="27.0" prefHeight="300.0" prefWidth="200.0" AnchorPane.rightAnchor="5.400000000000006" AnchorPane.topAnchor="27.0" />
+            <Label layoutX="8.0" text="Changes">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView layoutX="5.0" layoutY="364.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="8.0" layoutY="336.0" text="Properties">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button onAction="#openSelectChange" layoutX="83.0" layoutY="-1.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="removeChangeButton" disable="true" layoutX="132.0" layoutY="-1.0" mnemonicParsing="false" onAction="#removeChange" text="Remove" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

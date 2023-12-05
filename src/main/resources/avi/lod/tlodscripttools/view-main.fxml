@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="720.0" styleClass="body" stylesheets="@../../../css/gen.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="avi.lod.tlodscripttools.EntryController">
+   <children>
+      <MenuBar prefHeight="26.0" prefWidth="315.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Browse">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Patching">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openOverviewPatchWindow" text="Overview Patch" />
+              <MenuItem mnemonicParsing="false" onAction="#openCreatePatchWindow" text="Create Patch" />
+                  <MenuItem mnemonicParsing="false" onAction="#openApplyPatchWindow" text="Apply Patch" />
+                  <MenuItem mnemonicParsing="false" text="Clean Patches" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Preferences">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#sett" text="Settings" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Info">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openCreditsWindow" text="Credits" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
