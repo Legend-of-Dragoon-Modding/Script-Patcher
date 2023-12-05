@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="280.0" prefWidth="200.0" styleClass="body" stylesheets="@../../../css/gen.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="avi.lod.tlodscripttools.ChestContent">
+   <children>
+      <TextField fx:id="itemIdLabel" layoutX="25.0" layoutY="108.0" promptText="6" />
+      <TextField fx:id="inventoryFullLabel" layoutX="25.0" layoutY="176.0" text="Cannot carry any more items." />
+      <Button layoutX="78.0" layoutY="220.0" mnemonicParsing="false" onAction="#saveChange" text="Save" />
+      <Label layoutX="25.0" layoutY="90.0" text="Item ID (Integer)" />
+      <Label layoutX="28.0" layoutY="158.0" text="Inventory Full Text" />
+      <TextField fx:id="chestScriptLocation" layoutX="25.0" layoutY="40.0" promptText="SECT/DRGN21.BIN/36/9" />
+      <Label layoutX="28.0" layoutY="22.0" text="Chest Script Location" />
+   </children>
 </AnchorPane>

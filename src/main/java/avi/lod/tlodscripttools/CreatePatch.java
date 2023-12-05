@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class CreatePatch implements Initializable{
 
-    static Patch chosenPatch;
+    public Patch chosenPatch;
 
     @FXML
     private MenuItem openPatchMenuItem;
@@ -137,6 +137,8 @@ public class CreatePatch implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("patch-settings.fxml"));
             Parent root = loader.load();
             Stage PatchSettingsWindow = new Stage();
+            PatchSettings controller = (PatchSettings) loader.getController();
+            controller.setStage(PatchSettingsWindow,this);
             PatchSettingsWindow.getIcons().add(new Image(getClass().getResource("/img/myconido-drew.png").toExternalForm()));
             PatchSettingsWindow.setTitle("Patch Settings");
             PatchSettingsWindow.setScene(new Scene(root, 440,280));

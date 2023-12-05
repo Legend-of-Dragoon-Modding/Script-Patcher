@@ -6,11 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PatchSettings implements Initializable{
+public class PatchSettings{
     @FXML
     private TextField patchName;
     @FXML
@@ -18,17 +19,24 @@ public class PatchSettings implements Initializable{
     @FXML
     private TextArea patchDescription;
 
+    private CreatePatch createPatch;
+
+    private Stage self;
+
     public void savePatchSettings(){
-        CreatePatch.chosenPatch.patchName = this.patchName.getText();
-        CreatePatch.chosenPatch.patchDescription = this.patchDescription.getText();
-        CreatePatch.chosenPatch.patchPrefix = this.patchPrefix.getText();
+        createPatch.chosenPatch.patchName = this.patchName.getText();
+        createPatch.chosenPatch.patchDescription = this.patchDescription.getText();
+        createPatch.chosenPatch.patchPrefix = this.patchPrefix.getText();
+        self.close();
     }
-    public void initialize(URL location, ResourceBundle resources){
+    public void setStage(Stage self,CreatePatch c){
+        this.createPatch = c;
+        this.self = self;
         loadPatchSettings();
     }
     public void loadPatchSettings(){
-        this.patchName.setText(CreatePatch.chosenPatch.patchName);
-        this.patchDescription.setText(CreatePatch.chosenPatch.patchDescription);
-        this.patchPrefix.setText(CreatePatch.chosenPatch.patchPrefix);
+        this.patchName.setText(createPatch.chosenPatch.patchName);
+        this.patchDescription.setText(createPatch.chosenPatch.patchDescription);
+        this.patchPrefix.setText(createPatch.chosenPatch.patchPrefix);
     }
 }
