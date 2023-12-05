@@ -4,20 +4,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ChestContentChange extends Change{
-    public final int itemIndex;
-    public final String acquiredText;
-    public final String inventoryFullText;
+    public int itemIndex;
+    public String acquiredText;
+    public String inventoryFullText;
 
     public ChestContentChange(@JsonProperty("path") String path,@JsonProperty("itemIndex") int itemIndex,@JsonProperty("inventoryFullText") String inventoryFullText){
         super(path);
         this.itemIndex = itemIndex;
-        this.acquiredText = "Acquired " + Util.getItemNameFromId(itemIndex);
         this.inventoryFullText = inventoryFullText;
+        setAcquiredText();
     }
 
     @JsonIgnore
     public ChestContentChange(@JsonProperty("name") String path,@JsonProperty("itemIndex") int itemIndex){
         this(path,itemIndex,"Cannot carry any more items.");
+    }
+    public void setAcquiredText(){
+        this.acquiredText = "Acquired " + Util.getItemNameFromId(itemIndex);
+    }
+    @JsonIgnore
+    public ChestContentChange(String path){
+        super(path);
     }
     @JsonIgnore
     String applyChanges(String script) {

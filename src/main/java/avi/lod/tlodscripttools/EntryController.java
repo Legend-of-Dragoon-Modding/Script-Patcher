@@ -69,17 +69,4 @@ public class EntryController {
             e.printStackTrace();
         }
     }
-    public void openOverviewPatchWindow(){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("overview-patch.fxml"));
-            Parent root = loader.load();
-            Stage createPatchWindow = new Stage();
-            createPatchWindow.getIcons().add(new Image(getClass().getResource(iconPath).toExternalForm()));
-            createPatchWindow.setTitle("Overview Patch");
-            createPatchWindow.setScene(new Scene(root, 1000, 600));
-            createPatchWindow.show();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 }

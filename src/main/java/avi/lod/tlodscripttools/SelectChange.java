@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,8 +39,14 @@ public class SelectChange implements Initializable {
             }
         };
         changeListView.getSelectionModel().selectedItemProperty().addListener(changeTypeListener);
+        changeListView.setOnMouseClicked(event ->{
+            if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() > 1){
+                addChange();
+            }
+        });
         stage.setOnCloseRequest(windowEvent -> {
             changeListView.getSelectionModel().selectedItemProperty().removeListener(changeTypeListener);
+            changeListView.setOnMouseClicked(null);
         });
     }
 
