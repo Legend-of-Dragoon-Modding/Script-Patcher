@@ -147,4 +147,12 @@ public class CreatePatch implements Initializable{
             e.printStackTrace();
         }
     }
+    public void savePatch(){
+        try{
+            Patcher patcher = new Patcher();
+            patcher.savePatch(this.chosenPatch);
+        }catch (IOException err){
+            err.printStackTrace();
+        }
+    }
 }

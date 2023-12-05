@@ -16,9 +16,8 @@
             </Menu>
           <Menu fx:id="patchMenu" disable="true" mnemonicParsing="false" text="Patch">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#openPatchSettings" text="Settings" />
-                <MenuItem mnemonicParsing="false" text="Add Change" />
-                <MenuItem mnemonicParsing="false" text="Save" />
+                <MenuItem mnemonicParsing="false" onAction="#openPatchSettings" text="Settings" />
+                <MenuItem mnemonicParsing="false" onAction="#savePatch" text="Save" />
                 <MenuItem fx:id="closePatchMenuItem" mnemonicParsing="false" onAction="#closePatch" text="Close" />
             </items>
           </Menu>
