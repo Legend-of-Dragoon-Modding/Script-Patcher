@@ -1,23 +1,20 @@
 package avi.lod.tlodscripttools;
 
-
-import avi.lod.tlodscripttools.Patching.ChestContentChange;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class EntryController {
-    private String iconPath = "/img/myconido-drew.png";
+    private final String iconPath = "/img/myconido-drew.png";
     public void openSettingsWindow(){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
             Parent root = loader.load();
             Stage settingsWindow = new Stage();
+            Settings controller = (Settings) loader.getController();
+            controller.setStage(settingsWindow);
             settingsWindow.getIcons().add(new Image(getClass().getResource(iconPath).toExternalForm()));
             settingsWindow.setTitle("Settings");
             settingsWindow.setScene(new Scene(root, 300, 200));

@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class SelectChange implements Initializable {
 
     @FXML
-    ListView changeListView;
+    ListView<String> changeListView;
 
 
     @FXML
@@ -29,13 +29,7 @@ public class SelectChange implements Initializable {
     private CreatePatch createPatchController;
 
     public void setEventListeners(){
-        javafx.beans.value.ChangeListener<String> changeTypeListener = (observableValue, oldValue, newValue) -> {
-            if(newValue != null){
-                addChangeButton.setDisable(false);
-            }else{
-                addChangeButton.setDisable(true);
-            }
-        };
+        javafx.beans.value.ChangeListener<String> changeTypeListener = (observableValue, oldValue, newValue) -> addChangeButton.setDisable(newValue == null);
         changeListView.getSelectionModel().selectedItemProperty().addListener(changeTypeListener);
         changeListView.setOnMouseClicked(event ->{
             if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() > 1){
@@ -59,7 +53,7 @@ public class SelectChange implements Initializable {
 
     }
     public void addChange(){
-        switch (changeListView.getSelectionModel().getSelectedItem().toString()){
+        switch (changeListView.getSelectionModel().getSelectedItem()){
             case "Chest Content Change":
                 openChestChangeWindow();
                 break;

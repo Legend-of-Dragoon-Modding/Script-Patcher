@@ -27,7 +27,7 @@ public class ChestContent {
         this.self = self;
     }
     public void saveChange(){
-        this.createPatch.chosenPatch.changes.add(new ChestContentChange(chestScriptLocation.getText(),Integer.valueOf(itemIdField.getText()),inventoryFullField.getText(), changeNameField.getText()));
+        this.createPatch.chosenPatch.changes.add(new ChestContentChange(chestScriptLocation.getText(),Integer.parseInt(itemIdField.getText()),inventoryFullField.getText(), changeNameField.getText()));
         this.createPatch.setChangeListItems();
         self.close();
     }

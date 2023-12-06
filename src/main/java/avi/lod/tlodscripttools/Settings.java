@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
@@ -19,7 +20,9 @@ public class Settings implements Initializable {
     @FXML
     TextField scFilesLoc;
 
+    private Stage self;
 
+    public void setStage(Stage self){this.self = self;}
     @Override
     public void initialize(URL location, ResourceBundle resources){
         scFilesLoc.setText(Preferences.prefs.get("sc_files_folder"));
@@ -27,6 +30,7 @@ public class Settings implements Initializable {
     public void saveChanges(){
         Preferences.prefs.put("sc_files_folder",scFilesLoc.getText());
         Preferences.savePrefs();
+        self.close();
     }
     public void pickFilesFolder(ActionEvent event){
         DirectoryChooser directoryChooser = new DirectoryChooser();

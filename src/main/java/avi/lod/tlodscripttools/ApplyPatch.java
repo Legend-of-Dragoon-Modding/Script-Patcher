@@ -31,12 +31,7 @@ public class ApplyPatch {
         if(selectedFile != null){
             applyPatchButton.setDisable(true);
             statusLabel.setText("Applying Patch");
-            Executors.newSingleThreadExecutor().execute(new Runnable() {
-                @Override
-                public void run() {
-                    applyPatch(selectedFile);
-                }
-            });
+            Executors.newSingleThreadExecutor().execute(() -> applyPatch(selectedFile));
         }
     }
     private void applyPatch(File p){

@@ -4,7 +4,7 @@ import avi.lod.tlodscripttools.Patching.Patch;
 import avi.lod.tlodscripttools.Patching.Patcher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,7 +17,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
-import javax.print.DocFlavor;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -30,8 +30,6 @@ public class CreatePatch implements Initializable{
     @FXML
     private MenuItem openPatchMenuItem;
 
-    @FXML
-    private MenuItem closePatchMenuItem;
     @FXML
     private MenuItem editPatchMenuItem;
 
@@ -55,13 +53,7 @@ public class CreatePatch implements Initializable{
         this.stage = stage;
     }
     public void setEventListeners(){
-        javafx.beans.value.ChangeListener<Number> selectedIndexListener = (observableValue, oldValue, newValue) ->{
-            if (newValue.intValue() != -1) {
-                removeChangeButton.setDisable(false);
-            } else {
-                removeChangeButton.setDisable(true);
-            }
-        };
+        javafx.beans.value.ChangeListener<Number> selectedIndexListener = (observableValue, oldValue, newValue) -> removeChangeButton.setDisable(newValue.intValue() == -1);
         changeListView.getSelectionModel().selectedIndexProperty().addListener(selectedIndexListener);
         stage.setOnCloseRequest(windowEvent -> changeListView.getSelectionModel().selectedIndexProperty().removeListener(selectedIndexListener));
     }
@@ -70,7 +62,7 @@ public class CreatePatch implements Initializable{
 
     }
 
-    public void pickPatch(ActionEvent event){
+    public void pickPatch(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Pick a patch file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Json File","*.json"));
@@ -93,7 +85,7 @@ public class CreatePatch implements Initializable{
         }
         changeListView.setItems(items);
     }
-    public void createNewPatch(ActionEvent event){
+    public void createNewPatch(){
         this.chosenPatch = new Patch();
         openPatchMenuItem.setDisable(true);
         editPatchMenuItem.setDisable(true);
@@ -101,7 +93,7 @@ public class CreatePatch implements Initializable{
         sideBarPane.setVisible(true);
         openPatchSettings();
     }
-    public void closePatch(ActionEvent event){
+    public void closePatch(){
         chosenPatch = null;
         openPatchMenuItem.setDisable(false);
         editPatchMenuItem.setDisable(false);
@@ -109,12 +101,12 @@ public class CreatePatch implements Initializable{
         patchMenu.setDisable(true);
     }
 
-    public void removeChange(ActionEvent event){
+    public void removeChange(){
         int changeIndex = changeListView.getSelectionModel().getSelectedIndex();
         this.chosenPatch.changes.remove(changeIndex);
         setChangeListItems();
     }
-    public void openSelectChange(ActionEvent event){
+    public void openSelectChange(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("select-change.fxml"));
             Parent root = loader.load();

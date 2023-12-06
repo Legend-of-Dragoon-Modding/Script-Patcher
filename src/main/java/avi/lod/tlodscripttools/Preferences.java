@@ -1,16 +1,15 @@
 package avi.lod.tlodscripttools;
 
-
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner; // Import the Scanner class to read text files
 
 public class Preferences {
-    public static Map<String,String> prefs = new HashMap<String,String>();
+    public static Map<String,String> prefs = new HashMap<>();
+
 
     public static void savePrefs(){
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("settings"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("settings.txt"))) {
             for(Map.Entry<String,String> entry: prefs.entrySet()){
                 writer.write(entry.getKey() + "=" + entry.getValue());
                 writer.newLine();
@@ -20,7 +19,17 @@ public class Preferences {
         }
     }
     public static void loadPrefs(){
-        try (BufferedReader reader = new BufferedReader(new FileReader("settings"))) {
+        try{
+            File settings = new File("settings.txt");
+            if(!settings.exists()){
+                if(settings.createNewFile()){
+                    return;
+                }
+            }
+        }catch(IOException err){
+            err.printStackTrace();
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader("settings.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("=");
@@ -34,5 +43,4 @@ public class Preferences {
             e.printStackTrace(); // Handle the exception based on your needs
         }
     }
-
 }
