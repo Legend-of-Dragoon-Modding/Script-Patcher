@@ -7,7 +7,7 @@
    <children>
       <TextField fx:id="itemIdField" layoutX="24.0" layoutY="154.0" promptText="6" />
       <TextField fx:id="inventoryFullField" layoutX="24.0" layoutY="212.0" text="Cannot carry any more items." />
-      <Button layoutX="77.0" layoutY="255.0" mnemonicParsing="false" onAction="#saveChange" text="Save" />
+      <Button layoutX="24.0" layoutY="255.0" mnemonicParsing="false" onAction="#saveChange" prefHeight="30.0" prefWidth="153.0" text="Save" />
       <Label layoutX="24.0" layoutY="136.0" text="Item ID (Integer)" />
       <Label layoutX="24.0" layoutY="194.0" text="Inventory Full Text" />
       <TextField fx:id="chestScriptLocation" layoutX="24.0" layoutY="96.0" promptText="SECT/DRGN21.BIN/36/9" />

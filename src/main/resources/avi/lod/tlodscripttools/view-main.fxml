@@ -16,7 +16,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Preferences">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#sett" text="Settings" />
+                <MenuItem mnemonicParsing="false" onAction="#openSettingsWindow" text="Settings" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Info">

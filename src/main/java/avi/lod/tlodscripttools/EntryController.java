@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class EntryController {
     private String iconPath = "/img/myconido-drew.png";
-    public void sett(){
+    public void openSettingsWindow(){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
             Parent root = loader.load();

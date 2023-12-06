@@ -4,11 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
@@ -17,17 +14,11 @@ import java.util.ResourceBundle;
 
 public class Settings implements Initializable {
 
-    @FXML
-    CheckBox theme;
 
-    @FXML
-    Label theme_warn;
 
     @FXML
     TextField scFilesLoc;
-    public void onThemeChange(){
-            theme_warn.setVisible(theme.isSelected());
-    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
