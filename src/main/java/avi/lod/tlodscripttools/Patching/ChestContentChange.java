@@ -8,24 +8,18 @@ public class ChestContentChange extends Change{
     public String acquiredText;
     public String inventoryFullText;
 
-    public ChestContentChange(@JsonProperty("path") String path,@JsonProperty("itemIndex") int itemIndex,@JsonProperty("inventoryFullText") String inventoryFullText){
-        super(path);
+    public ChestContentChange(@JsonProperty("path") String path,@JsonProperty("itemIndex") int itemIndex,@JsonProperty("inventoryFullText") String inventoryFullText, @JsonProperty("changeName") String changeName){
+        super(path, changeName);
         this.itemIndex = itemIndex;
         this.inventoryFullText = inventoryFullText;
         setAcquiredText();
     }
 
-    @JsonIgnore
-    public ChestContentChange(@JsonProperty("name") String path,@JsonProperty("itemIndex") int itemIndex){
-        this(path,itemIndex,"Cannot carry any more items.");
-    }
+
     public void setAcquiredText(){
         this.acquiredText = "Acquired " + Util.getItemNameFromId(itemIndex);
     }
-    @JsonIgnore
-    public ChestContentChange(String path){
-        super(path);
-    }
+
     @JsonIgnore
     String applyChanges(String script) {
         String oldItemId = "";

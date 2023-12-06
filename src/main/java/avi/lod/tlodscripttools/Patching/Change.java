@@ -16,8 +16,10 @@ public abstract class Change {
     public final String scriptPath;
 
     public String changeName;
-    Change(String p){scriptPath=p;}
-
+    Change(String p, String changeName){
+        scriptPath=p;
+        this.changeName = changeName;
+    }
 
     abstract String applyChanges(String script);
 }

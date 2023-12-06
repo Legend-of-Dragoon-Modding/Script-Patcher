@@ -57,10 +57,8 @@ public class CreatePatch implements Initializable{
     public void setEventListeners(){
         javafx.beans.value.ChangeListener<Number> selectedIndexListener = (observableValue, oldValue, newValue) ->{
             if (newValue.intValue() != -1) {
-                System.out.println("Index clicked: " + newValue);
                 removeChangeButton.setDisable(false);
             } else {
-                System.out.println("No index selected");
                 removeChangeButton.setDisable(true);
             }
         };
@@ -90,7 +88,8 @@ public class CreatePatch implements Initializable{
     public void setChangeListItems(){
         ObservableList<String> items = FXCollections.observableArrayList();
         for(int i = 0;i < this.chosenPatch.changes.size(); i++){
-            items.add(this.chosenPatch.changes.get(i).getClass().getSimpleName());
+            //items.add(this.chosenPatch.changes.get(i).getClass().getSimpleName());
+            items.add(this.chosenPatch.changes.get(i).changeName);
         }
         changeListView.setItems(items);
     }
@@ -99,8 +98,8 @@ public class CreatePatch implements Initializable{
         openPatchMenuItem.setDisable(true);
         editPatchMenuItem.setDisable(true);
         patchMenu.setDisable(false);
-
         sideBarPane.setVisible(true);
+        openPatchSettings();
     }
     public void closePatch(ActionEvent event){
         chosenPatch = null;

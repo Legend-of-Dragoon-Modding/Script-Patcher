@@ -1,6 +1,5 @@
 package avi.lod.tlodscripttools;
 
-import avi.lod.tlodscripttools.Patching.ChestContentChange;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
@@ -27,7 +25,7 @@ public class SelectChange implements Initializable {
 
     @FXML
     Button addChangeButton;
-    private Stage stage;
+    private Stage self;
     private CreatePatch createPatchController;
 
     public void setEventListeners(){
@@ -44,7 +42,7 @@ public class SelectChange implements Initializable {
                 addChange();
             }
         });
-        stage.setOnCloseRequest(windowEvent -> {
+        self.setOnCloseRequest(windowEvent -> {
             changeListView.getSelectionModel().selectedItemProperty().removeListener(changeTypeListener);
             changeListView.setOnMouseClicked(null);
         });
@@ -55,8 +53,8 @@ public class SelectChange implements Initializable {
         ObservableList<String> items = FXCollections.observableArrayList("Chest Content Change","Difference Change");
         changeListView.setItems(items);
     }
-    public void setStage(Stage stage, CreatePatch c) {
-        this.stage = stage;
+    public void setStage(Stage self, CreatePatch c) {
+        this.self = self;
         this.createPatchController = c;
 
     }
@@ -66,9 +64,10 @@ public class SelectChange implements Initializable {
                 openChestChangeWindow();
                 break;
             case "Difference Change":
+                openDiffChangeWindow();
                 break;
         }
-        stage.close();
+        self.close();
     }
     private void openChestChangeWindow(){
         try {
@@ -80,9 +79,24 @@ public class SelectChange implements Initializable {
             //controller.setEventListeners();
             chestChangeWindow.getIcons().add(new Image(getClass().getResource("/img/myconido-drew.png").toExternalForm()));
             chestChangeWindow.setTitle("Chest Content Change");
-            chestChangeWindow.setScene(new Scene(root, 200, 280));
+            chestChangeWindow.setScene(new Scene(root, 200, 300));
             chestChangeWindow.show();
         }catch (IOException err){
+            err.printStackTrace();
+        }
+    }
+    private void openDiffChangeWindow(){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("diff-change-controller.fxml"));
+            Parent root = loader.load();
+            Stage diffChangeWindow = new Stage();
+            DiffChangeController controller = (DiffChangeController) loader.getController();
+            controller.setStage(diffChangeWindow,createPatchController);
+            diffChangeWindow.getIcons().add(new Image(getClass().getResource("/img/myconido-drew.png").toExternalForm()));
+            diffChangeWindow.setTitle("Difference Change");
+            diffChangeWindow.setScene(new Scene(root, 256, 210));
+            diffChangeWindow.show();
+        }catch(IOException err){
             err.printStackTrace();
         }
     }

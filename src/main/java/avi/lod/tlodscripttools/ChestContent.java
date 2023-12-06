@@ -11,10 +11,13 @@ public class ChestContent {
     TextField chestScriptLocation;
 
     @FXML
-    TextField inventoryFullLabel;
+    TextField inventoryFullField;
 
     @FXML
-    TextField itemIdLabel;
+    TextField itemIdField;
+
+    @FXML
+    TextField changeNameField;
 
     CreatePatch createPatch;
     Stage self;
@@ -24,7 +27,7 @@ public class ChestContent {
         this.self = self;
     }
     public void saveChange(){
-        this.createPatch.chosenPatch.changes.add(new ChestContentChange(chestScriptLocation.getText(),Integer.valueOf(itemIdLabel.getText()),inventoryFullLabel.getText()));
+        this.createPatch.chosenPatch.changes.add(new ChestContentChange(chestScriptLocation.getText(),Integer.valueOf(itemIdField.getText()),inventoryFullField.getText(), changeNameField.getText()));
         this.createPatch.setChangeListItems();
         self.close();
     }

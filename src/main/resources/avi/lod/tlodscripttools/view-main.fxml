@@ -7,11 +7,6 @@
    <children>
       <MenuBar prefHeight="26.0" prefWidth="315.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Browse">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Patching">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#openCreatePatchWindow" text="Create Patch" />

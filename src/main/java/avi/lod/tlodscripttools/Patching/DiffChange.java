@@ -15,17 +15,16 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 public class DiffChange extends Change{
-    //private final List<String> updatedScript;
     public Patch<String> diff;
 
-    DiffChange(@JsonProperty("path") String path, @JsonProperty("diff") Patch<String> diff){
-        super(path);
+    public DiffChange(@JsonProperty("path") String path, @JsonProperty("changeName") String changeName, @JsonProperty("diff") Patch<String> diff){
+        super(path, changeName);
         this.diff = diff;
     }
 
     @JsonIgnore
-    DiffChange(String path, String updatedPath) throws IOException {
-        super(path);
+    public DiffChange(String path, String changeName, String updatedPath) throws IOException {
+        super(path, changeName);
         String SCFileDumpLoc = Preferences.prefs.get("sc_files_folder");
         final byte[] bytes;
         Path ogFilePath = Paths.get(SCFileDumpLoc + path + ".og");
@@ -43,15 +42,12 @@ public class DiffChange extends Change{
         //this.updatedScript = Arrays.asList(Files.readString(filePath).split("\n"));
     }
     String applyChanges(String script){
-
-
         try {
             List<String> patchedLines = DiffUtils.patch(Arrays.asList(script.split("\n")),this.diff);
             script = String.join("\n",patchedLines);
         } catch (PatchFailedException e) {
             throw new RuntimeException(e);
         }
-
         return script;
     }
 

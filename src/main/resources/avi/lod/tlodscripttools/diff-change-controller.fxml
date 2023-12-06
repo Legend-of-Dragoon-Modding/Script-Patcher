@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="256.0" styleClass="body" stylesheets="@../../../css/gen.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="avi.lod.tlodscripttools.DiffChangeController">
+   <children>
+      <Button layoutX="177.0" layoutY="151.0" mnemonicParsing="false" onAction="#pickUpdatedScriptPath" text="Pick" />
+      <TextField fx:id="updatedScriptField" layoutX="24.0" layoutY="151.0" promptText="new_vampire_kiwi.txt" />
+      <TextField fx:id="ogScriptField" layoutX="24.0" layoutY="91.0" promptText="SECT/DRGN1.BIN/28" />
+      <Label layoutX="24.0" layoutY="133.0" text="Updated Script (Text)" />
+      <Label layoutX="24.0" layoutY="73.0" text="Original Script Location" />
+      <Button layoutX="51.0" layoutY="205.0" mnemonicParsing="false" onAction="#saveChange" prefHeight="30.0" prefWidth="153.0" text="Save" />
+      <TextField fx:id="changeNameField" layoutX="24.0" layoutY="33.0" promptText="immortal kiwi" text="Script Difference" />
+      <Label layoutX="24.0" layoutY="14.0" text="Change Name" />
+   </children>
+</AnchorPane>

@@ -43,7 +43,7 @@ public class Util {
             yieldEntries.add(index);
             index = script.indexOf("yield", index + 1);
         }
-        System.out.println(yieldEntries);
+        //System.out.println(yieldEntries);
         return "";
     }
 

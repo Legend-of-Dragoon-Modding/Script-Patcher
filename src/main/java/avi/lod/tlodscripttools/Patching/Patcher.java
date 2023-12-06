@@ -82,7 +82,6 @@ public class Patcher {
 
         String jsonString = objectMapper.writeValueAsString(p);
         Files.write(Paths.get("patch.json"),jsonString.getBytes(),  StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
-        System.out.println(jsonString);
     }
     public Patch loadPatch(String path){
         try {

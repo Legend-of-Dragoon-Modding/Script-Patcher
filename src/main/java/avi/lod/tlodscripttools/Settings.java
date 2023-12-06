@@ -34,7 +34,6 @@ public class Settings implements Initializable {
         scFilesLoc.setText(Preferences.prefs.get("sc_files_folder"));
     }
     public void saveChanges(){
-        System.out.println("clicked");
         Preferences.prefs.put("sc_files_folder",scFilesLoc.getText());
         Preferences.savePrefs();
     }
