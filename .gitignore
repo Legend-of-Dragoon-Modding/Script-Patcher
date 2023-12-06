@@ -40,3 +40,4 @@ build/
 ### Other ###
 patch.json
 settings.txt
+dependency-reduced-pom.xml
