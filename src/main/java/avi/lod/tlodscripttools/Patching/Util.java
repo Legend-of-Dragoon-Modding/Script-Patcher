@@ -3,25 +3,21 @@ package avi.lod.tlodscripttools.Patching;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Util {
-    public static File itemFile = new File("Item_IDs.csv");
+
+
     public static String getItemNameFromId(int itemId){
 
-        FileReader filereader = null;
-        try {
-            filereader = new FileReader(itemFile);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        InputStream in = Util.class.getClassLoader().getResourceAsStream("csv/Item_IDs.csv");
 
-        CSVReader csvReader = new CSVReader(filereader);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+        CSVReader csvReader = new CSVReader(reader);
         List<String[]> allData = null;
         try {
             allData = csvReader.readAll();
@@ -32,6 +28,7 @@ public class Util {
         }
         return allData.get(itemId)[1];
     }
+
 
     /**
      * Returns label name of the main controller loop

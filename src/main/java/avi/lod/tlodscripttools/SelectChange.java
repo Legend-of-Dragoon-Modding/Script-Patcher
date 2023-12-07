@@ -88,7 +88,7 @@ public class SelectChange implements Initializable {
             controller.setStage(diffChangeWindow,createPatchController);
             diffChangeWindow.getIcons().add(new Image(getClass().getResource("/img/myconido-drew.png").toExternalForm()));
             diffChangeWindow.setTitle("Difference Change");
-            diffChangeWindow.setScene(new Scene(root, 256, 210));
+            diffChangeWindow.setScene(new Scene(root, 256, 250));
             diffChangeWindow.show();
         }catch(IOException err){
             err.printStackTrace();

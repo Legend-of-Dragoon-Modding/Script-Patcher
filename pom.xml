@@ -117,9 +117,12 @@
                 <configuration>
                     <shadedArtifactAttached>true</shadedArtifactAttached>
                     <transformers>
-                        <transformer
-                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>avi.lod.tlodscripttools.MyAppLauncher</mainClass>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <!--<mainClass>avi.lod.tlodscripttools.MyAppLauncher</mainClass>-->
+                            <manifestEntries>
+                                <Main-Class>avi.lod.tlodscripttools.MyAppLauncher</Main-Class>
+                                <Multi-Release>true</Multi-Release>
+                            </manifestEntries>
                         </transformer>
                     </transformers>
                 </configuration>

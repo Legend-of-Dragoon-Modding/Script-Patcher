@@ -99,6 +99,7 @@ public class CreatePatch implements Initializable{
         editPatchMenuItem.setDisable(false);
         sideBarPane.setVisible(false);
         patchMenu.setDisable(true);
+        changeListView.setItems(null);
     }
 
     public void removeChange(){
@@ -114,7 +115,8 @@ public class CreatePatch implements Initializable{
             SelectChange controller = (SelectChange)loader.getController();
             controller.setStage(createPatchWindow, this);
             controller.setEventListeners();
-            createPatchWindow.getIcons().add(new Image(getClass().getResource("/img/myconido-drew.png").toExternalForm()));
+            createPatchWindow.getIcons().add(new Image(getClass().getResource("/img/myconido-drew.png").
+                    toExternalForm()));
             createPatchWindow.setTitle("Select Change");
             createPatchWindow.setScene(new Scene(root, 300, 400));
             createPatchWindow.show();

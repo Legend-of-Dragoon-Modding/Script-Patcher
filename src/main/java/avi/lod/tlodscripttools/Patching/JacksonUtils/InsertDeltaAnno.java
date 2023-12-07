@@ -6,6 +6,7 @@ import com.github.difflib.patch.AbstractDelta;
 import com.github.difflib.patch.Chunk;
 import com.github.difflib.patch.DeltaType;
 
+import java.util.List;
 
 
 public  abstract class InsertDeltaAnno<T> extends AbstractDelta<T>{

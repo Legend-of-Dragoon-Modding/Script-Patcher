@@ -9,6 +9,6 @@ import com.github.difflib.patch.DeltaType;
 public abstract class DeleteDeltaAnno <T> extends AbstractDelta<T> {
     @JsonCreator
     public DeleteDeltaAnno(@JsonProperty("source") Chunk<T> source, @JsonProperty("target") Chunk<T> target) {
-        super(DeltaType.INSERT,source,target);
+        super(DeltaType.DELETE,source,target);
     }
 }

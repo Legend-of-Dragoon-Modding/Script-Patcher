@@ -9,6 +9,6 @@ import com.github.difflib.patch.DeltaType;
 public abstract class EqualDeltaAnno<T> extends AbstractDelta<T> {
     @JsonCreator
     public EqualDeltaAnno(@JsonProperty("source") Chunk<T> source, @JsonProperty("target") Chunk<T> target) {
-        super(DeltaType.INSERT,source,target);
+        super(DeltaType.EQUAL,source,target);
     }
 }
