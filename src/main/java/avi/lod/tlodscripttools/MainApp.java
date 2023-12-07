@@ -1,6 +1,7 @@
 package avi.lod.tlodscripttools;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -21,6 +22,10 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
 
+        stage.setOnCloseRequest(windowEvent -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
     public static void main(String[] args) {
         launch();
