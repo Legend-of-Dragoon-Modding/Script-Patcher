@@ -81,7 +81,7 @@ public class Patcher {
         objectMapper.addMixIn(com.github.difflib.patch.Patch.class, PatchAnno.class);
 
         String jsonString = objectMapper.writeValueAsString(p);
-        Files.write(Paths.get("patch.json"),jsonString.getBytes(),  StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        Files.write(Paths.get(p.patchName + ".json"),jsonString.getBytes(),  StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
     public Patch loadPatch(String path){
         try {
